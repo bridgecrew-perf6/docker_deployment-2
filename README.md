@@ -1,6 +1,7 @@
 # docker_deployment
 
 Tasks:
-dockerfile build to create an image
-docker push to push the image to remote repo
-docker container creation
+
+1)dockerfile build to create an image
+2)docker push to push the image to remote repo
+3)docker container creation
