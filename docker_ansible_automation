@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  become: true
+  tasks:
+    - name: Install pip
+      apt: name=python3-pip state=present
+    - name: install docker-py package
+      pip: name=docker-py
+    - name: Build Docker image from Dockerfile
+      docker_image:
+        build:
+          path: ./test
+        name: devopsintellipaat/ansible-automation
+        tag: v1
+        force_source: yes
+        push: yes
+        source: build
+    - name: Create a data container
+      docker_container:
+        name: ubuntu
+        image: devopsintellipaat/ansible-automation:v1
